@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bas52mcii2jnl"]
+
+[ext_resource type="Texture2D" uid="uid://o16apwbai0km" path="res://sprites/grey_tile_half_height.png" id="1_qsv6y"]
+[ext_resource type="Texture2D" uid="uid://deewilabbtp63" path="res://sprites/select_tile_half_height.png" id="2_0w1j7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_difrn"]
+texture = ExtResource("1_qsv6y")
+texture_region_size = Vector2i(120, 54)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uc3to"]
+texture = ExtResource("2_0w1j7")
+texture_region_size = Vector2i(120, 54)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(120, 54)
+sources/3 = SubResource("TileSetAtlasSource_difrn")
+sources/4 = SubResource("TileSetAtlasSource_uc3to")
