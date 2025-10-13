@@ -16,4 +16,4 @@ func _process_input():
 	var select_tile_coords = select_layer.local_to_map(get_global_mouse_position())
 	prev_tile_selection_coords = select_tile_coords
 			
-	select_layer.set_cell(select_tile_coords, 4, Vector2(0,0), 0)
+	select_layer.set_cell(select_tile_coords, 1, Vector2(0,0))

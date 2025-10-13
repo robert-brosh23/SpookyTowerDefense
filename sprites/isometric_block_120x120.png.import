@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvv2a7fosgfcv"
-path="res://.godot/imported/grey_tile.png-289c75ad07a8cc4c9d7f5646766768ce.ctex"
+uid="uid://cqndmib2b33m6"
+path="res://.godot/imported/isometric_block_120x120.png-a2f7ac70061f7092b495e0b3812b5e3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/grey_tile.png"
-dest_files=["res://.godot/imported/grey_tile.png-289c75ad07a8cc4c9d7f5646766768ce.ctex"]
+source_file="res://sprites/isometric_block_120x120.png"
+dest_files=["res://.godot/imported/isometric_block_120x120.png-a2f7ac70061f7092b495e0b3812b5e3c.ctex"]
 
 [params]
 
