@@ -1,7 +1,9 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bas52mcii2jnl"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bas52mcii2jnl"]
 
 [ext_resource type="Texture2D" uid="uid://deewilabbtp63" path="res://sprites/select_tile_half_height.png" id="2_0w1j7"]
 [ext_resource type="Texture2D" uid="uid://cqndmib2b33m6" path="res://sprites/isometric_block_120x120.png" id="2_qsv6y"]
+[ext_resource type="Texture2D" uid="uid://b2fsbtmygfwud" path="res://sprites/enemy_temp.png" id="3_difrn"]
+[ext_resource type="Texture2D" uid="uid://cc0li8g2ixxmb" path="res://sprites/turret_temp.png" id="4_uc3to"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ysh4"]
 texture = ExtResource("2_0w1j7")
@@ -15,8 +17,24 @@ texture_region_size = Vector2i(120, 120)
 0:0/0/texture_origin = Vector2i(0, 30)
 0:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jt506"]
+texture = ExtResource("3_difrn")
+texture_region_size = Vector2i(120, 120)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 30)
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cqrvf"]
+texture = ExtResource("4_uc3to")
+texture_region_size = Vector2i(120, 120)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 30)
+0:1/0 = 0
+
 [resource]
 tile_shape = 1
 tile_size = Vector2i(120, 60)
 sources/1 = SubResource("TileSetAtlasSource_3ysh4")
 sources/2 = SubResource("TileSetAtlasSource_0w1j7")
+sources/3 = SubResource("TileSetAtlasSource_jt506")
+sources/4 = SubResource("TileSetAtlasSource_cqrvf")
