@@ -13,9 +13,8 @@ func _ready() -> void:
 	timer.start()
 	
 func _on_timer_timeout():
-	var direction := PI/4.0
+	var direction := 5.0 * PI / 4.0
 	var bullet = Bullet.spawn_bullet(direction)
-	bullet.position.y -= 30
 	var offset = 50.0
 	bullet.position += offset * Vector2(cos(direction), sin(direction) / 2)
 	add_child(bullet)
