@@ -1,6 +1,6 @@
 class_name Bullet extends Node2D
 
-const SPEED := 100.0
+const DEFAULT_SPEED := 100.0
 const time_to_live = 4.0
 
 @export var shadow : Sprite2D
@@ -8,15 +8,17 @@ const time_to_live = 4.0
 
 var base_layer : TileMapLayer
 var direction := 0.0
+var speed : float
 
-static func spawn_bullet(bullet_direction: float) -> Bullet:
+static func spawn_bullet(bullet_direction: float, bullet_speed: float = DEFAULT_SPEED) -> Bullet:
 	var bullet_scene = preload("res://turret/bullet/bullet.tscn")
 	var bullet : Bullet = bullet_scene.instantiate()
 	bullet.direction = bullet_direction
+	bullet.speed = bullet_speed
 	return bullet
 
 func _physics_process(delta: float) -> void:
-	position += delta * SPEED * Vector2(cos(direction),sin(direction) * 0.5)
+	position += delta * speed * Vector2(cos(direction),sin(direction) * 0.5)
 	
 	if base_layer != null:
 		if base_layer.get_cell_source_id(base_layer.local_to_map(global_position + Vector2(0, 60))) == -1:

@@ -6,6 +6,8 @@
 [node name="Turret" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_2876l")
+shot_cooldown = 0.25
+shot_direction = 3.765
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vfthy")
