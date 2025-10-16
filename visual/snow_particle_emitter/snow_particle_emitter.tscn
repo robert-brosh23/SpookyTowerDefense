@@ -1,6 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3buy7jdemmub"]
+[gd_scene load_steps=6 format=3 uid="uid://c3buy7jdemmub"]
 
 [ext_resource type="Texture2D" uid="uid://6b7buqh41jm4" path="res://sprites/snowflake.png" id="1_8rpm0"]
+[ext_resource type="Script" uid="uid://bhvl7fcifnb65" path="res://visual/snow_particle_emitter/snow_particle_emitter.gd" id="1_ldiga"]
+
+[sub_resource type="Curve" id="Curve_ldiga"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8181818, 1), 0.0, 0.0, 0, 0, Vector2(0.90909094, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_icmul"]
+curve = SubResource("Curve_ldiga")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ldiga"]
 emission_shape_offset = Vector3(0, 0, 10)
@@ -12,18 +20,24 @@ radial_accel_max = -2.2351742e-06
 scale_min = 0.79999995
 scale_max = 1.5
 color = Color(1, 1, 1, 0.6509804)
+alpha_curve = SubResource("CurveTexture_icmul")
 turbulence_enabled = true
 turbulence_noise_speed_random = 0.0
 turbulence_influence_min = 0.020000001
 turbulence_influence_max = 0.080000006
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
 
 [node name="SnowParticleEmitter" type="Node2D"]
+position = Vector2(96, 223)
+script = ExtResource("1_ldiga")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = -1
 amount = 100
 texture = ExtResource("1_8rpm0")
-lifetime = 20.0
+lifetime = 10.0
 preprocess = 30.0
 visibility_rect = Rect2(-100, -100, 200, 1000)
 process_material = SubResource("ParticleProcessMaterial_ldiga")
@@ -31,7 +45,7 @@ process_material = SubResource("ParticleProcessMaterial_ldiga")
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 amount = 200
 texture = ExtResource("1_8rpm0")
-lifetime = 20.0
+lifetime = 10.0
 preprocess = 30.0
 visibility_rect = Rect2(-100, -100, 200, 1000)
 process_material = SubResource("ParticleProcessMaterial_ldiga")
