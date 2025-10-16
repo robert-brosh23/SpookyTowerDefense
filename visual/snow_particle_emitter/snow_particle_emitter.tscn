@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3buy7jdemmub"]
+
+[ext_resource type="Texture2D" uid="uid://6b7buqh41jm4" path="res://sprites/snowflake.png" id="1_8rpm0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ldiga"]
+emission_shape_offset = Vector3(0, 0, 10)
+emission_shape = 3
+emission_box_extents = Vector3(1500, 0, -5)
+gravity = Vector3(-100, 200, 0)
+radial_accel_min = -8.000002
+radial_accel_max = -2.2351742e-06
+scale_min = 0.79999995
+scale_max = 1.5
+color = Color(1, 1, 1, 0.6509804)
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.080000006
+
+[node name="SnowParticleEmitter" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -1
+amount = 100
+texture = ExtResource("1_8rpm0")
+lifetime = 20.0
+preprocess = 30.0
+visibility_rect = Rect2(-100, -100, 200, 1000)
+process_material = SubResource("ParticleProcessMaterial_ldiga")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+amount = 200
+texture = ExtResource("1_8rpm0")
+lifetime = 20.0
+preprocess = 30.0
+visibility_rect = Rect2(-100, -100, 200, 1000)
+process_material = SubResource("ParticleProcessMaterial_ldiga")
