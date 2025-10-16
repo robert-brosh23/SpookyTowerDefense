@@ -4,6 +4,7 @@ const SPEED := 100.0
 const time_to_live = 4.0
 
 @export var shadow : Sprite2D
+@export var hitbox : Hitbox
 
 var base_layer : TileMapLayer
 var direction := 0.0
@@ -29,3 +30,5 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start(time_to_live)
 	timer.timeout.connect(func(): queue_free())
+	
+	hitbox.hit_connected.connect(func(): queue_free())

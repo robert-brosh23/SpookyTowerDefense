@@ -1,20 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cop5cdfewiibd"]
+[gd_scene load_steps=7 format=3 uid="uid://cop5cdfewiibd"]
 
 [ext_resource type="Script" uid="uid://ctl7a4usktj3a" path="res://turret/bullet/bullet.gd" id="1_hsklv"]
 [ext_resource type="Texture2D" uid="uid://b5dxs7nyvxaqb" path="res://sprites/bullet-1.png" id="1_ygfaf"]
 [ext_resource type="Shader" uid="uid://ctkntlxkjhvki" path="res://turret/bullet/bullet.gdshader" id="3_yq2du"]
+[ext_resource type="PackedScene" uid="uid://ceikawa0o0f83" path="res://hitbox/hitbox.tscn" id="4_wckrl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wckrl"]
 shader = ExtResource("3_yq2du")
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hsklv"]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clnxe"]
+radius = 1.9999493
+height = 9.985512
 
-[node name="Bullet" type="Node2D" node_paths=PackedStringArray("shadow")]
-y_sort_enabled = true
+[node name="Bullet" type="Node2D" node_paths=PackedStringArray("shadow", "hitbox")]
 script = ExtResource("1_hsklv")
 shadow = NodePath("Shadow")
+hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -30)
@@ -25,7 +27,8 @@ material = SubResource("ShaderMaterial_wckrl")
 scale = Vector2(1, 0.5)
 texture = ExtResource("1_ygfaf")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" parent="." instance=ExtResource("4_wckrl")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_hsklv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = -1.563679
+shape = SubResource("CapsuleShape2D_clnxe")
