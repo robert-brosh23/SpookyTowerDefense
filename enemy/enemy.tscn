@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwwpjremcryu7"]
+
+[ext_resource type="Texture2D" uid="uid://b2fsbtmygfwud" path="res://sprites/enemy_temp.png" id="1_2mvqj"]
+[ext_resource type="PackedScene" uid="uid://ba0p85r2w6c67" path="res://hurtbox/hurtbox.tscn" id="2_ofsxj"]
+
+[node name="Enemy" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2mvqj")
+offset = Vector2(0, -30)
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_ofsxj")]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hurtbox"]
+y_sort_enabled = true
+polygon = PackedVector2Array(60, 0, 0, 30, -60, 0, 0, -30)

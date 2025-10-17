@@ -35,7 +35,7 @@ script = ExtResource("1_ldiga")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = -1
-amount = 100
+amount = 200
 texture = ExtResource("1_8rpm0")
 lifetime = 10.0
 preprocess = 30.0
@@ -43,7 +43,8 @@ visibility_rect = Rect2(-100, -100, 200, 1000)
 process_material = SubResource("ParticleProcessMaterial_ldiga")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-amount = 200
+z_index = 5
+amount = 100
 texture = ExtResource("1_8rpm0")
 lifetime = 10.0
 preprocess = 30.0

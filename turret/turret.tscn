@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://crkdx2y7k2mil"]
+
+[ext_resource type="Script" uid="uid://b8hi6046i0yh2" path="res://turret/turret.gd" id="1_2876l"]
+[ext_resource type="Texture2D" uid="uid://cc0li8g2ixxmb" path="res://sprites/turret_temp.png" id="1_vfthy"]
+
+[node name="Turret" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_2876l")
+shot_cooldown = 0.25
+shot_direction = 3.765
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vfthy")
+offset = Vector2(0, -30)
