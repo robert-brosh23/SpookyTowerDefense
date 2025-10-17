@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crkdx2y7k2mil" path="res://turret/turret.tscn" id="5_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://cbjedcl68p1pt" path="res://ui/create_turret_button/create_turret_button.tscn" id="6_kfbq2"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("select_layer", "base_layer") groups=["main"]]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("select_layer", "base_layer")]
 y_sort_enabled = true
 script = ExtResource("1_pjrb6")
 select_layer = NodePath("TileMapLayers/SelectLayer")
