@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://duhrv3k0n172j"]
+[gd_scene load_steps=6 format=4 uid="uid://duhrv3k0n172j"]
 
 [ext_resource type="Script" uid="uid://dywll2hekti2m" path="res://main/main.gd" id="1_pjrb6"]
 [ext_resource type="TileSet" uid="uid://bas52mcii2jnl" path="res://tileset/tileset.tres" id="2_xwkvk"]
-[ext_resource type="PackedScene" uid="uid://crkdx2y7k2mil" path="res://turret/turret.tscn" id="3_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://c3buy7jdemmub" path="res://visual/snow_particle_emitter/snow_particle_emitter.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://dwwpjremcryu7" path="res://enemy/enemy.tscn" id="4_c651c"]
+[ext_resource type="PackedScene" uid="uid://crkdx2y7k2mil" path="res://turret/turret.tscn" id="5_3wy1v"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("select_layer")]
 y_sort_enabled = true
@@ -21,8 +22,21 @@ tile_set = ExtResource("2_xwkvk")
 z_index = 1
 tile_set = ExtResource("2_xwkvk")
 
-[node name="Turret" parent="." instance=ExtResource("3_xwkvk")]
-position = Vector2(1024, 634)
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+custom_minimum_size = Vector2(1920, 1080)
+layout_direction = 4
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+
+[node name="SnowParticleEmitter" parent="." instance=ExtResource("3_xwkvk")]
+position = Vector2(1209, -107)
 
 [node name="Enemy" parent="." instance=ExtResource("4_c651c")]
 position = Vector2(842, 539)
+
+[node name="Turret" parent="." instance=ExtResource("5_3wy1v")]
+position = Vector2(1261, 630)
