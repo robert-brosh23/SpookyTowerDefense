@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbjedcl68p1pt"]
+
+[ext_resource type="Script" uid="uid://n5nwg0c64ajw" path="res://ui/create_turret_button/create_turret_button.gd" id="1_noggf"]
+
+[node name="CreateTurretButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_noggf")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Create Turret"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
