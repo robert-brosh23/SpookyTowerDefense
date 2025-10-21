@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://duhrv3k0n172j"]
+[gd_scene load_steps=8 format=4 uid="uid://duhrv3k0n172j"]
 
 [ext_resource type="Script" uid="uid://dywll2hekti2m" path="res://main/main.gd" id="1_pjrb6"]
 [ext_resource type="TileSet" uid="uid://bas52mcii2jnl" path="res://tileset/tileset.tres" id="2_xwkvk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwwpjremcryu7" path="res://enemy/enemy.tscn" id="4_c651c"]
 [ext_resource type="PackedScene" uid="uid://crkdx2y7k2mil" path="res://turret/turret.tscn" id="5_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://cbjedcl68p1pt" path="res://ui/create_turret_button/create_turret_button.tscn" id="6_kfbq2"]
+[ext_resource type="PackedScene" uid="uid://cbo116lfwnwqy" path="res://enemy/enemy_spawner/enemy_spawner.tscn" id="7_4dugh"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("select_layer", "base_layer") groups=["main"]]
 y_sort_enabled = true
@@ -46,3 +47,7 @@ position = Vector2(1261, 630)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CreateTurretButton" parent="CanvasLayer" instance=ExtResource("6_kfbq2")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("7_4dugh")]
+position = Vector2(1079, 781)
+spawn_cooldown = 5.0

@@ -18,6 +18,9 @@ func _process(delta: float) -> void:
 	var tile_pos = select_layer.map_to_local(select_tile_coords)
 	global_position = tile_pos
 	
+	if Input.is_action_just_pressed("cancel"):
+		queue_free()
+	
 	if base_layer.get_cell_source_id(select_tile_coords + Vector2i(0, 2)) == 2:
 		visible = true
 		if Input.is_action_just_pressed("click"):
