@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bdy01i15rrc5g" path="res://enemy/enemy.gd" id="1_ppra6"]
 [ext_resource type="PackedScene" uid="uid://ba0p85r2w6c67" path="res://hurtbox/hurtbox.tscn" id="2_ofsxj"]
 
-[node name="Enemy" type="Node2D" node_paths=PackedStringArray("hurtbox")]
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("hurtbox") groups=["enemies"]]
 y_sort_enabled = true
 script = ExtResource("1_ppra6")
 hurtbox = NodePath("Hurtbox")

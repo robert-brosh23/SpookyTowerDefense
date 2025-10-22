@@ -28,3 +28,4 @@ func destroy_enemy():
 	print("destroyed")
 	destroyed.emit()
 	queue_free()
+	
