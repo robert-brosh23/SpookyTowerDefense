@@ -2,17 +2,19 @@ class_name Turret extends Node2D
 
 @export var shot_cooldown : float = 1.0
 @export_range(0, 2.0 * PI) var shot_direction: float
+@export var detection_radius: float
 @export var shot_speed : float = 200.0
 @export var sprite : Sprite2D
-@export var detection_radius := 400.0
+
 
 var timer: Timer
 
-static func create_new_turret(turret_shot_cooldown := 1.0, turret_shot_direction := 0, turret_shot_speed := 200.0) -> Turret:
+static func create_new_turret(turret_shot_cooldown := 1.0, turret_shot_direction := 0, turret_shot_speed := 200.0, detection_radius := 400.0) -> Turret:
 	var turret = preload("res://turret/turret.tscn").instantiate()
 	turret.shot_cooldown = turret_shot_cooldown
 	turret.shot_direction = turret_shot_direction
 	turret.shot_speed = turret_shot_speed
+	turret.detection_radius = detection_radius
 	turret.sprite.texture = preload("res://sprites/turret_temp.png")
 	return turret
 
