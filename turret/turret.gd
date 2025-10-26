@@ -4,6 +4,7 @@ class_name Turret extends Node2D
 @export_range(0, 2.0 * PI) var shot_direction: float
 @export var shot_speed : float = 200.0
 @export var sprite : Sprite2D
+@export var detection_radius := 400.0
 
 var timer: Timer
 
@@ -24,8 +25,25 @@ func _ready() -> void:
 	timer.start()
 	
 func _on_timer_timeout():
-	var bullet = Bullet.spawn_bullet(shot_direction, shot_speed)
-	var offset = 50.0
-	bullet.position += offset * Vector2(cos(shot_direction), sin(shot_direction) / 2)
-	add_child(bullet)
+	var target = _get_nearest_enemy()
+	if target:
+		shot_direction = global_position.angle_to_point(target.hurtbox.global_position)
+		var bullet = Bullet.spawn_bullet(shot_direction, shot_speed)
+		var offset = 50.0
+		bullet.position += offset * Vector2(cos(shot_direction), sin(shot_direction) / 2)
+		add_child(bullet)
+		
 	timer.start()
+
+func _get_nearest_enemy() -> Enemy:
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	var nearest : Enemy = null
+	var nearest_dist := INF
+	for e in enemies:
+		if not e or not e.is_inside_tree():
+			continue
+		var dist = global_position.distance_to(e.global_position)
+		if dist < nearest_dist and dist < detection_radius:
+			nearest = e
+			nearest_dist = dist
+	return nearest

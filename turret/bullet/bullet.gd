@@ -5,7 +5,7 @@ const time_to_live = 4.0
 
 @export var shadow : Sprite2D
 @export var hitbox : Hitbox
-@export var detection_radius := 400.0
+
 
 var base_layer : TileMapLayer
 var direction := 0.0
@@ -28,11 +28,6 @@ func _physics_process(delta: float) -> void:
 			shadow.visible = true
 
 func _ready() -> void:
-	# Aim towards nearest enemy
-	var target = _get_nearest_enemy()
-	if target:
-		direction = global_position.angle_to_point(target.hurtbox.global_position)
-
 	var timer = Timer.new()
 	base_layer = get_tree().get_first_node_in_group("base_layer")
 	add_child(timer)
@@ -41,15 +36,3 @@ func _ready() -> void:
 	
 	hitbox.hit_connected.connect(func(): queue_free())
 	
-func _get_nearest_enemy() -> Enemy:
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	var nearest : Enemy = null
-	var nearest_dist := INF
-	for e in enemies:
-		if not e or not e.is_inside_tree():
-			continue
-		var dist = global_position.distance_to(e.global_position)
-		if dist < nearest_dist and dist < detection_radius:
-			nearest = e
-			nearest_dist = dist
-	return nearest
