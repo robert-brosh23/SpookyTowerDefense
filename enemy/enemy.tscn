@@ -46,7 +46,7 @@ _data = {
 &"take_damage": SubResource("Animation_1wwld")
 }
 
-[node name="Enemy" type="PathFollow2D" node_paths=PackedStringArray("hurtbox", "animation_player")]
+[node name="Enemy" type="PathFollow2D" node_paths=PackedStringArray("hurtbox", "animation_player") groups=["enemies"]]
 y_sort_enabled = true
 rotates = false
 loop = false

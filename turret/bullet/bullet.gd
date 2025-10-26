@@ -6,6 +6,7 @@ const time_to_live = 4.0
 @export var shadow : Sprite2D
 @export var hitbox : Hitbox
 
+
 var base_layer : TileMapLayer
 var direction := 0.0
 var speed : float
@@ -18,7 +19,7 @@ static func spawn_bullet(bullet_direction: float, bullet_speed: float = DEFAULT_
 	return bullet
 
 func _physics_process(delta: float) -> void:
-	position += delta * speed * Vector2(cos(direction),sin(direction) * 0.5)
+	position += delta * speed * Vector2(cos(direction),sin(direction))
 	
 	if base_layer != null:
 		if base_layer.get_cell_source_id(base_layer.local_to_map(global_position + Vector2(0, 60))) == -1:
@@ -34,3 +35,4 @@ func _ready() -> void:
 	timer.timeout.connect(func(): queue_free())
 	
 	hitbox.hit_connected.connect(func(): queue_free())
+	
